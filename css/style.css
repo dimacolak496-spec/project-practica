@@ -1,0 +1,726 @@
+/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ САЙТА ROSALIA ===== */
+
+/* Общие улучшения */
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== ШАПКА САЙТА ===== */
+header {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Логотип с дополнительными эффектами */
+header .text-2xl {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+header .text-2xl:hover {
+  transform: scale(1.05);
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Навигация с подчеркиванием */
+nav ul li a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* ===== ГЛАВНЫЙ БЛОК ===== */
+#home {
+  position: relative;
+  overflow: hidden;
+}
+
+#home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(236, 72, 153, 0.3), rgba(244, 114, 182, 0.3));
+  z-index: 1;
+}
+
+#home .relative {
+  z-index: 10;
+}
+
+/* Улучшенная кнопка в главном блоке */
+#home a {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3);
+  transition: all 0.3s ease;
+}
+
+#home a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+#home a:hover::before {
+  left: 100%;
+}
+
+#home a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(236, 72, 153, 0.4);
+}
+
+/* ===== КАРТОЧКИ ТОВАРОВ ===== */
+
+/* Улучшенный контейнер карточек */
+#catalog .grid {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Основные стили карточек */
+.bg-white.rounded-xl.shadow-lg {
+  background: linear-gradient(135deg, #ffffff 0%, #fef7ff 100%) !important;
+  border: 1px solid rgba(236, 72, 153, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  position: relative;
+  overflow: hidden !important;
+}
+
+/* Эффект hover для карточек */
+.bg-white.rounded-xl.shadow-lg:hover {
+  transform: translateY(-12px) scale(1.03) !important;
+  box-shadow: 0 25px 50px rgba(236, 72, 153, 0.25) !important;
+  border-color: rgba(236, 72, 153, 0.3) !important;
+}
+
+/* Градиентная рамка при hover */
+.bg-white.rounded-xl.shadow-lg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #ec4899, #f472b6, #ec4899);
+  background-size: 300% 300%;
+  opacity: 0;
+  z-index: -1;
+  border-radius: 12px;
+  padding: 2px;
+  transition: opacity 0.3s ease;
+  animation: gradientRotate 3s ease infinite;
+}
+
+.bg-white.rounded-xl.shadow-lg:hover::before {
+  opacity: 1;
+}
+
+@keyframes gradientRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Стили изображений */
+.bg-white img {
+  transition: all 0.4s ease !important;
+  position: relative;
+}
+
+.bg-white:hover img {
+  transform: scale(1.1) !important;
+  filter: brightness(1.1) saturate(1.2) !important;
+}
+
+/* Эффект блика на изображении */
+.bg-white img::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  z-index: 1;
+  transition: left 0.6s;
+}
+
+.bg-white:hover img::after {
+  left: 100%;
+}
+
+/* Заголовки товаров */
+.bg-white h3 {
+  transition: all 0.3s ease !important;
+  position: relative;
+}
+
+.bg-white h3::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ec4899, #f472b6);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.bg-white:hover h3::after {
+  width: 80%;
+}
+
+.bg-white:hover h3 {
+  color: #ec4899 !important;
+  transform: translateY(-2px);
+}
+
+/* Цены товаров */
+.bg-white p.text-pink-500 {
+  background: linear-gradient(45deg, #ec4899, #f472b6) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 2px 4px rgba(236, 72, 153, 0.3));
+  position: relative;
+  transition: all 0.3s ease !important;
+}
+
+.bg-white p.text-pink-500::before {
+  content: '💰';
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  font-size: 1.2em;
+}
+
+.bg-white:hover p.text-pink-500::before {
+  opacity: 1;
+  left: -25px;
+}
+
+.bg-white:hover p.text-pink-500 {
+  transform: scale(1.1);
+}
+
+/* Кнопки покупки */
+.bg-white button {
+  background: linear-gradient(45deg, #ec4899, #f472b6, #ec4899) !important;
+  background-size: 200% 200% !important;
+  animation: buttonGradient 3s ease infinite !important;
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.3) !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border: none !important;
+}
+
+@keyframes buttonGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg-white button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.bg-white button:hover::before {
+  left: 100%;
+}
+
+.bg-white button::after {
+  content: '🛒';
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.bg-white button:hover::after {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.bg-white button:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 30px rgba(236, 72, 153, 0.4) !important;
+}
+
+.bg-white button:active {
+  transform: translateY(-1px) !important;
+}
+
+/* ===== Цветок дня ===== */
+
+/* Карточка */
+.flower-of-day-card {
+  position: relative;
+  background: linear-gradient(145deg, #fef7ff 0%, #f0f9ff 50%, #fef7ff 100%) !important;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  border-radius: 18px;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.flower-of-day-card::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(45deg, #ec4899, #f472b6, #a855f7);
+  background-size: 300% 300%;
+  border-radius: 18px;
+  z-index: -1;
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { 
+    box-shadow: 0 0 30px rgba(236, 72, 153, 0.3),
+                0 0 60px rgba(236, 72, 153, 0.1);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(236, 72, 153, 0.5),
+                0 0 80px rgba(236, 72, 153, 0.2);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Значок скидки */
+.sale-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #dc2626;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  z-index: 10;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100%, 20%, 53%, 80% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  70% { transform: translateY(-4px); }
+  90% { transform: translateY(-2px); }
+}
+
+/* Перелив на изображении */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(236, 72, 153, 0.1) 50%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.flower-of-day-card:hover .image-overlay {
+  opacity: 1;
+}
+
+/* Цена */
+.price-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin: 0 auto;
+  max-width: 250px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.old-price {
+  font-size: 1.2rem;
+  color: #9ca3af;
+  text-decoration: line-through;
+  position: relative;
+}
+
+.old-price::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #ef4444;
+  transform: translateY(-50%);
+}
+
+.new-price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ec4899, #f472b6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  animation: priceGlow 2s ease-in-out infinite;
+}
+
+@keyframes priceGlow {
+  0%, 100% { filter: drop-shadow(0 0 5px rgba(236, 72, 153, 0.3)); }
+  50% { filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.6)); }
+}
+
+/* Таймер */
+.countdown-timer {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(236, 72, 153, 0.2);
+  border-radius: 12px;
+  padding: 12px;
+  max-width: 280px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 2px 15px rgba(236, 72, 153, 0.1);
+}
+
+.timer-label {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.timer-display {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ec4899;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+}
+
+.timer-display span {
+  display: inline-block;
+  min-width: 30px;
+  background: linear-gradient(135deg, #ec4899, #f472b6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: digitPulse 1s infinite;
+}
+
+@keyframes digitPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Кнопка */
+.flower-day-btn {
+  background: linear-gradient(135deg, #ec4899, #f472b6, #a855f7);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  animation: buttonShimmer 3s linear infinite;
+  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
+  transition: transform 0.3s ease;
+}
+
+@keyframes buttonShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.flower-day-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s;
+}
+
+.flower-day-btn:hover::before {
+  left: 100%;
+}
+
+.flower-day-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+
+.btn-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.flower-day-btn:hover .btn-icon {
+  transform: rotate(180deg) scale(1.2);
+}
+
+/* Фон секции */
+#flower-of-day {
+  position: relative;
+  overflow: hidden;
+}
+
+#flower-of-day::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.03) 0%, transparent 70%);
+  animation: backgroundRotate 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes backgroundRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#flower-of-day > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* Адаптивность для секции цветка дня */
+@media (max-width: 768px) {
+  .flower-of-day-card {
+    margin: 0 20px;
+  }
+
+  .timer-display {
+    font-size: 1.2rem;
+  }
+
+  .new-price {
+    font-size: 1.5rem;
+  }
+
+  .flower-day-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  
+  .price-container {
+    max-width: 200px;
+    padding: 10px 16px;
+  }
+}
+
+/* ===== МОДАЛЬНОЕ ОКНО ===== */
+#modal {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+#modal .bg-white {
+  background: linear-gradient(135deg, #ffffff 0%, #fef7ff 100%);
+  border: 2px solid rgba(236, 72, 153, 0.2);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+#modal input {
+  border: 2px solid rgba(236, 72, 153, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+#modal input:focus {
+  outline: none !important;
+  border-color: #ec4899 !important;
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1) !important;
+}
+
+#modal button:last-child {
+  background: linear-gradient(45deg, #ec4899, #f472b6) !important;
+  transition: all 0.3s ease !important;
+}
+
+#modal button:last-child:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3) !important;
+}
+
+/* ===== СЕКЦИИ ===== */
+#about, #delivery {
+  position: relative;
+  overflow: hidden;
+}
+
+#about::before, #delivery::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.05) 0%, transparent 70%);
+  z-index: 0;
+}
+
+#about h2, #delivery h2 {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 4px rgba(236, 72, 153, 0.1);
+}
+
+#about p, #delivery p {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== ФУТЕР ===== */
+footer {
+  background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+footer i {
+  transition: transform 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+footer div:hover i {
+  transform: scale(1.2);
+}
+
+footer div:first-child i {
+  animation-delay: 0s;
+}
+
+footer div:last-child i {
+  animation-delay: 1.5s;
+}
+
+/* ===== АНИМАЦИИ ЗАГРУЗКИ ===== */
+.animate__zoomIn {
+  animation-delay: 0.1s;
+}
+
+.animate__zoomIn:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.animate__zoomIn:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 768px) {
+  .bg-white.rounded-xl.shadow-lg:hover {
+    transform: translateY(-6px) scale(1.02) !important;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  #home h2 {
+    font-size: 1.5rem;
+  }
+  
+  #home p {
+    font-size: 1rem;
+  }
+}
+
+/* ===== ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ ===== */
+
+/* Плавающая анимация для иконок */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Улучшенный скролл */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Пульсация для привлечения внимания */
+@keyframes pulse-attention {
+  0%, 100% {
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.1);
+  }
+  50% {
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+  }
+}
+
+.bg-white.rounded-xl.shadow-lg {
+  animation: pulse-attention 4s ease-in-out infinite 2s;
+}
